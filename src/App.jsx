@@ -10,11 +10,11 @@ const App = () => {
   const { weeklyForecast, choosenCard } = useContext(WeatherContext);
   return (
     <div className="App">
-      {/* <MySwiper />
-      <News /> */}
       <Cards />
       {choosenCard && <DetailsList />}
       {weeklyForecast && <Forecast />}
+      {/* <News />
+      <MySwiper /> */}
     </div>
   );
 };

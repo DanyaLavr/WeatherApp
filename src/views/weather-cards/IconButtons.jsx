@@ -1,5 +1,6 @@
 import { createBem } from '@/utils/createBem';
-import styles from './Cards.module.scss';
+import styles from './IconButtons.module.scss';
+
 
 const bem = createBem('weather-cards', styles);
 

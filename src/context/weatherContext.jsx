@@ -5,7 +5,7 @@ import { useMaxCards } from '@/hooks/useMaxCards';
 export const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
-  const [cardsArr, setCardsArray] = useState([]);
+  const [cardsArr, setCardsArray] = useState(null);
   const [inputValue, setInputValue] = useState('');
   const [dailyForecast, setDailyForecast] = useState(false);
   const [weeklyForecast, setWeeklyForecast] = useState(false);

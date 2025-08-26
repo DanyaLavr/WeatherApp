@@ -4,15 +4,15 @@ import { useEffect, useContext } from 'react';
 import ForecastItem from '@/components/ForecastItem';
 import DateConverter from './DateConverter';
 import { useState } from 'react';
-import { WeatherContext } from "@/context/weatherContext";
-
+import { WeatherContext } from '@/context/weatherContext';
+import Loader from '@/components/loader/Loader';
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const bem = createBem('weather', styles);
 
 const Forecast = () => {
   const { weeklyForecastCordinates } = useContext(WeatherContext);
-  const [forecastData, setForecastData] = useState([]);
+  const [forecastData, setForecastData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -39,6 +39,7 @@ const Forecast = () => {
 
     fetchData();
   }, []);
+  if (!forecastData) return <Loader />;
   return (
     <section className={bem('section')}>
       <div className="container">

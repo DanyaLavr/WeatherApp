@@ -1,9 +1,10 @@
 import { useState, useContext } from 'react';
 import { WeatherContext } from '@/context/weatherContext';
 import styles from './Cards.module.scss';
+import Loader from '@/components/loader/Loader';
 import { createBem } from '@/utils/createBem';
 import fetchWeather from '@/api/openWeather';
-import Button from './Button';
+import Button from './IconButtons';
 const bem = createBem('weather-cards', styles);
 
 function timeNow() {
@@ -54,21 +55,9 @@ export default function Card() {
       e.target.classList.add(className);
     }
   };
+  if(!cardsArr) return <Loader/>
   return (
     <>
-      <div className={bem('search')}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Enter city"
-          className={bem('input')}
-        />
-        <button onClick={handleSearch} className={bem('button')}>
-          Add City
-        </button>
-      </div>
-      <ul className={bem()}>
         {cardsArr.map((item) => {
           const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
           const countryName = regionNames.of(item.sys.country);
@@ -143,7 +132,6 @@ export default function Card() {
             </li>
           );
         })}
-      </ul>
     </>
   );
 }
