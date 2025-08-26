@@ -3,6 +3,7 @@
 .details {
   @include section-padding-top;
   &__list {
+    position: relative;
     background-color: $color-backdrop;
     padding: 35px 43px;
     display: grid;

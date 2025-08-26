@@ -31,13 +31,14 @@ export const WeatherProvider = ({ children }) => {
 
   const getCard = (id) => {
     console.log(id, cardsArr);
-    return cardsArr.find((card) => card.id === id)
+    return cardsArr.find((card) => card.id === id);
   };
 
   const toggleDailyForecast = () => setDailyForecast((prev) => !prev);
   const toggleWeeklyForecast = () => setWeeklyForecast((prev) => !prev);
 
   const handleChooseCard = (id) => setChoosenCard(getCard(id));
+  const resetChoosenCard = () => setChoosenCard(null);
   useEffect(() => {
     const loadCities = async () => {
       try {
@@ -106,6 +107,7 @@ export const WeatherProvider = ({ children }) => {
 
         choosenCard,
         handleChooseCard,
+        resetChoosenCard,
       }}
     >
       {children}

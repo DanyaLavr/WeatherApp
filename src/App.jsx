@@ -14,7 +14,7 @@ const App = () => {
       {choosenCard && <DetailsList />}
       {weeklyForecast && <Forecast />}
       <News />
-      {/* <MySwiper /> */}
+      <MySwiper />
     </div>
   );
 };

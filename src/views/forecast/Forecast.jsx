@@ -7,10 +7,11 @@ import { useState } from 'react';
 import { WeatherContext } from '@/context/weatherContext';
 import Loader from '@/components/loader/Loader';
 import { fetchWeeklyForecast } from '@/api/forecast';
+import CloseButton from '../../components/close-button/CloseButton';
 const bem = createBem('weather', styles);
 
 const Forecast = () => {
-  const { weeklyForecastCordinates } = useContext(WeatherContext);
+  const { weeklyForecastCordinates, toggleWeeklyForecast } = useContext(WeatherContext);
   const [forecastData, setForecastData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +42,7 @@ const Forecast = () => {
       <div className="container">
         <div className={bem('content')}>
           <h1 className={bem('title')}>Weekly forecast</h1>
+          <CloseButton onClick={() => toggleWeeklyForecast()} />
           <ul className={bem('list')}>
             {forecastData.map((item, key) => {
               const icon = item.weather[0].icon;

@@ -5,6 +5,7 @@
 .weather__section {
   @include section-padding-top();
   .weather__content {
+    position: relative;
     padding: 18px 25px 35px 25px;
     border-radius: 15px;
     background: $color-backdrop;

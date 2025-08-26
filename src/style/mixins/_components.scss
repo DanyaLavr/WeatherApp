@@ -35,13 +35,13 @@
   }
   @include media('L') {
     padding-top: $padding-top-desk;
-  } 
+  }
 }
 
 @mixin margin-center {
   margin: 0 auto;
 }
-@mixin flex-center($justify-content: center, $align-items: center,$display: flex) {
+@mixin flex-center($justify-content: center, $align-items: center, $display: flex) {
   display: $display;
   justify-content: $justify-content;
   align-items: $align-items;

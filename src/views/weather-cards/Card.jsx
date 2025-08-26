@@ -55,83 +55,83 @@ export default function Card() {
       e.target.classList.add(className);
     }
   };
-  if(!cardsArr) return <Loader/>
+  if (!cardsArr) return <Loader />;
   return (
     <>
-        {cardsArr.map((item) => {
-          const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-          const countryName = regionNames.of(item.sys.country);
+      {cardsArr.map((item) => {
+        const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
+        const countryName = regionNames.of(item.sys.country);
 
-          return (
-            <li key={item.id} className={bem('item')}>
-              <div className={bem('country-info-container')}>
-                <p className={bem('country-info')}>{item.name}</p>
-                <p className={bem('country-info')}>{countryName}</p>
-              </div>
+        return (
+          <li key={item.id} className={bem('item')}>
+            <div className={bem('country-info-container')}>
+              <p className={bem('country-info')}>{item.name}</p>
+              <p className={bem('country-info')}>{countryName}</p>
+            </div>
 
-              <p className={bem('weather__time')}>{time}</p>
+            <p className={bem('weather__time')}>{time}</p>
 
-              <div className={bem('button-wrapper')}>
-                <button className={bem('button')}>Hourly forecast</button>
-                <button
-                  className={bem('button')}
-                  onClick={() => {
-                    console.log('click');
-                    console.log(weeklyForecast);
-                    toggleWeeklyForecast();
-                    handleWeeklyForecast(item.coord);
-                  }}
-                >
-                  Weekly forecast
-                </button>
-              </div>
+            <div className={bem('button-wrapper')}>
+              <button className={bem('button')}>Hourly forecast</button>
+              <button
+                className={bem('button')}
+                onClick={() => {
+                  console.log('click');
+                  console.log(weeklyForecast);
+                  toggleWeeklyForecast();
+                  handleWeeklyForecast(item.coord);
+                }}
+              >
+                Weekly forecast
+              </button>
+            </div>
 
-              <div className={bem('date-wrapper')}>
-                <p className={bem('date')}>{date.toLocaleDateString('uk-UA')}</p>
-                <hr className={bem('date__line')} />
-                <p className={bem('date')}>{daysOfWeek[dayOfWeek]}</p>
-              </div>
+            <div className={bem('date-wrapper')}>
+              <p className={bem('date')}>{date.toLocaleDateString('uk-UA')}</p>
+              <hr className={bem('date__line')} />
+              <p className={bem('date')}>{daysOfWeek[dayOfWeek]}</p>
+            </div>
 
-              <div className={bem('img-wrapper')}>
-                <img
-                  className={bem('img')}
-                  src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
-                  alt="weather icon"
-                />
-              </div>
+            <div className={bem('img-wrapper')}>
+              <img
+                className={bem('img')}
+                src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+                alt="weather icon"
+              />
+            </div>
 
-              <p className={bem('temperature')}>{item.main.temp.toFixed()}°C</p>
+            <p className={bem('temperature')}>{item.main.temp.toFixed()}°C</p>
 
-              <div className={bem('icons-wrapper')}>
-                <Button
-                  btnEvent={handleRefresh}
-                  btnClass="spinner"
-                  imgSrc="/images/weather-cards/sprite.svg#icon-spinner"
-                />
-                <Button
-                  btnEvent={(e) => handleAddToFavorites(e, item.name)}
-                  btnClass="heart"
-                  imgSrc="/images/weather-cards/sprite.svg#icon-heart"
-                />
-                <button
-                  className={`${bem('button')} ${bem('button-more')}`}
-                  onClick={() => {
-                    console.log(item.id);
-                    
-                    handleChooseCard(item.id);
-                  }}
-                >
-                  See more
-                </button>
-                <Button
-                  btnEvent={() => handleDelete(item.name)}
-                  btnClass="trash"
-                  imgSrc="/images/weather-cards/sprite.svg#icon-trash"
-                />
-              </div>
-            </li>
-          );
-        })}
+            <div className={bem('icons-wrapper')}>
+              <Button
+                btnEvent={handleRefresh}
+                btnClass="spinner"
+                imgSrc="/images/weather-cards/sprite.svg#icon-spinner"
+              />
+              <Button
+                btnEvent={(e) => handleAddToFavorites(e, item.name)}
+                btnClass="heart"
+                imgSrc="/images/weather-cards/sprite.svg#icon-heart"
+              />
+              <button
+                className={`${bem('button')} ${bem('button-more')}`}
+                onClick={() => {
+                  console.log(item.id);
+
+                  handleChooseCard(item.id);
+                }}
+              >
+                See more
+              </button>
+              <Button
+                btnEvent={() => handleDelete(item.name)}
+                btnClass="trash"
+                imgSrc="/images/weather-cards/sprite.svg#icon-trash"
+              />
+            </div>
+          </li>
+        );
+      })}
     </>
   );
 }

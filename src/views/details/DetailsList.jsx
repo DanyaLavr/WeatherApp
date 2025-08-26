@@ -3,10 +3,11 @@ import styles from './detailsList.module.scss';
 import DetailsItem from './DetailsItem';
 import { useContext } from 'react';
 import { WeatherContext } from '../../context/weatherContext';
+import CloseButton from '../../components/close-button/CloseButton';
 const bem = createBem('details', styles);
 
 const DetailsList = () => {
-  const { choosenCard } = useContext(WeatherContext);
+  const { choosenCard, resetChoosenCard } = useContext(WeatherContext);
 
   const renderedData = choosenCard && [
     { name: 'Feels Like', value: choosenCard.main?.feels_like, unit: '°C' },
@@ -28,6 +29,8 @@ const DetailsList = () => {
     <section className={bem()}>
       <div className="container">
         <ul className={bem('list')}>
+          <CloseButton onClick={() => resetChoosenCard()} extraMargin={false} />
+
           {renderedData ? (
             renderedData.map((elem, id) => <DetailsItem key={id} data={elem} />)
           ) : (

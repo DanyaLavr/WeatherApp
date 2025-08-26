@@ -11,4 +11,3 @@ const Example = () => {
     </header>
   );
 };
-

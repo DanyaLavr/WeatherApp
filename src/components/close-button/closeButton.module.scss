@@ -1,0 +1,41 @@
+@use '@/style/mixins/components' as *;
+.close-button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  &:hover {
+    fill: red;
+    transform: scale(1.3);
+  }
+  & svg {
+    width: 12px;
+    height: 12px;
+
+    @include media('M') {
+      width: 15px;
+      height: 15px;
+    }
+    @include media('L') {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  @include media('L') {
+    top: 15px;
+    right: 20px;
+  }
+}
+.close-button--extra-margin {
+  top: 16px;
+  right: 16px;
+  @include media('M') {
+    top: 17px;
+    right: 10px;
+  }
+  @include media('L') {
+    top: 20px;
+    right: 20px;
+  }
+}
