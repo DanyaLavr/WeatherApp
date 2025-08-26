@@ -4,7 +4,7 @@ import styles from './LogInFrom.module.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { LogInSchema } from '@/lib/validSchemas';
 
-import { useState, useRef, forwardRef } from 'react';
+
 
 const bem = createBem('logInForm', styles);
 
@@ -50,7 +50,7 @@ const LogInForm = ({ handleLogin, changeForm }) => {
             </div>
 
             <p className={`${bem('text')} ${bem('login-btn')}`}>
-              No account?{' '}
+              No account?
               <button type="button" className={bem('loginLink')} onClick={changeForm}>
                 Sign up
               </button>

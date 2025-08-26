@@ -2,7 +2,7 @@ import {createBem} from '@/utils/createBem'
 
 import styles from './MobileMenuHeader.module.scss'
 
-import UserLogo from '../../../public/images/icons/userlogo.svg'
+
 
 
 

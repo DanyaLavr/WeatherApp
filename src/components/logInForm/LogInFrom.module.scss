@@ -4,7 +4,7 @@
 .logInForm{
     &__title{
         text-align: center;
-        font-family: var(--second-family);
+        font-family: $font-accent;
         font-weight: 500;
         font-size: 20px;
         margin-bottom: 30px;
@@ -94,14 +94,14 @@
 
         justify-content: center;
         margin-bottom: 15px;
-        margin-top: 50px;
+        margin-top: 40px;
 
 
     }
 
     &__btnModal{
         @include btn-main(10px 20px, 12, $family: $font-main, $weight: 500);
-        font-size: 14px;
+        // font-size: 14px;
         width:114px;
     }
 

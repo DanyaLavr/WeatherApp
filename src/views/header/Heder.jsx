@@ -11,7 +11,7 @@ import ArrowClose from '../../../public/images/icons/arrowClose.svg'
 
 import { useState, useContext } from 'react'
 
-import { UserContext } from '../../context/userContext'
+import { UserContext } from '@/context/userContext'
 
 
 import MobileMenu from '@/components/mobileMenuHeader/MobileMenuHeader'

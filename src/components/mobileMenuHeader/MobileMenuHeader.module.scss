@@ -47,13 +47,16 @@
     }
 
     &__item-link{
-        color: #000;
+        color: $color-main;
         cursor: pointer;
         transition: 1s;
+        font-size: 10px;
+
+
     }
 
     &__item-link:hover {
-        color: #ffb36c;
+        color: $color-primary;
 
     }
 

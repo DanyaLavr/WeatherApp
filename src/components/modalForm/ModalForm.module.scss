@@ -12,22 +12,22 @@
     box-sizing: border-box;
     padding: 25px;
     border-radius: 10px;
-    background: #fff;
+    background: $color-secondary;
     width: 293px;
-    height: 454px;
+    // height: 454px;
 
     
     @include media('M') {
         padding: 25px 45px;
 
         width: 400px;
-        height: 440px;
+        // height: 440px;
     }
     @include media('L') {
         padding: 28px 80px ;
 
         width: 600px;
-        height: 504px;
+        // height: 504px;
     }
 
     &__loading{
@@ -90,7 +90,7 @@
     }
     &__title{
         text-align: center;
-        font-family: var(--second-family);
+        font-family: $font-accent;
         font-weight: 500;
         font-size: 20px;
         margin-bottom: 30px;
