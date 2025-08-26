@@ -4,7 +4,7 @@ import styles from './Cards.module.scss';
 import Loader from '@/components/loader/Loader';
 import { createBem } from '@/utils/createBem';
 import fetchWeather from '@/api/openWeather';
-import Button from './IconButtons';
+import Button from '../../components/iconsButton/IconButtons';
 const bem = createBem('weather-cards', styles);
 
 function timeNow() {

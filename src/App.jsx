@@ -13,8 +13,8 @@ const App = () => {
       <Cards />
       {choosenCard && <DetailsList />}
       {weeklyForecast && <Forecast />}
-      {/* <News />
-      <MySwiper /> */}
+      <News />
+      {/* <MySwiper /> */}
     </div>
   );
 };

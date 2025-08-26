@@ -6,8 +6,7 @@ import DateConverter from './DateConverter';
 import { useState } from 'react';
 import { WeatherContext } from '@/context/weatherContext';
 import Loader from '@/components/loader/Loader';
-const API_KEY = import.meta.env.VITE_API_KEY;
-
+import { fetchWeeklyForecast } from '@/api/forecast';
 const bem = createBem('weather', styles);
 
 const Forecast = () => {
@@ -16,10 +15,7 @@ const Forecast = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${weeklyForecastCordinates.lat}&lon=${weeklyForecastCordinates.lon}&units=metric&appid=${API_KEY}`
-        );
-        const data = await response.json();
+        const data = await fetchWeeklyForecast(weeklyForecastCordinates);
         console.log(data);
         const filtered = [];
         let lastDate = null;
