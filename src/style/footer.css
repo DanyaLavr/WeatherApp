@@ -29,7 +29,7 @@
 
 .footer-icons {
   display: flex;
-  gap: 15px;
+  gap: 30px;
   margin-top: 10px;
 }
 
@@ -37,7 +37,7 @@
 @media (max-width: 1200px) and (min-width: 768px) {
   .footer {
     justify-content: flex-start;
-    gap: 40px;
+    gap: 55px;
   }
 }
 
