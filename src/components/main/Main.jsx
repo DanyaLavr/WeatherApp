@@ -1,6 +1,9 @@
 import styles from "./main.module.scss"
 import { createBem } from '@/utils/createBem';
-const bem = createBem('main', styles); //* Створення початкового класу
+import MainInput from "./Main_input";
+const bem = createBem('main', styles);
+
+
 
 const Main = () => {
   return (
