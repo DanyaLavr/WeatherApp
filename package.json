@@ -11,12 +11,18 @@
     "format": "npx prettier . --write"
   },
   "dependencies": {
-    "axios": "^1.11.0",
+    "firebase": "^12.1.0",
+    "formik": "^2.4.6",
+    "framer-motion": "^12.23.12",
     "normalize.css": "^8.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.89.2",
+    "yup": "^1.7.0",
+    "axios": "^1.11.0",
     "swiper": "^11.2.10"
+    
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
