@@ -8,8 +8,6 @@ html {
   color: $color-main;
   font-family: $font-main;
   font-weight: 500;
-
-
 }
 
 .button--primary {
@@ -38,15 +36,15 @@ html {
     padding-left: 0;
     padding-right: 0;
 
+    @include media('M') {
+      width: 634px;
+    }
 
-  @include media('M') {
-    width: 634px;
+    @include media('L') {
+      width: 1140px;
+    }
   }
-
-  @include media('L') {
-    width: 1140px;
-  }
-  }}
+}
 
 a {
   color: #000;
@@ -54,13 +52,12 @@ a {
   text-decoration: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
   padding: 0;
 }
 
-
 .swiper-slide {
   width: 381px !important;
 }
-

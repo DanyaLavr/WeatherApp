@@ -23,17 +23,23 @@ const SignUpForm = ({ changeForm, handleRegister }) => {
           <label className={bem('label')}>
             Username:
             <Field className={bem('input')} name="username" placeholder="Username" />
-            <ErrorMessage className={bem('error')} name="username" component="div" style={{ color: 'red' }} />
-
-
+            <ErrorMessage
+              className={bem('error')}
+              name="username"
+              component="div"
+              style={{ color: 'red' }}
+            />
           </label>
 
           <label className={bem('label')}>
             E-mail:
             <Field className={bem('input')} type="email" name="email" placeholder="E-mail" />
-            <ErrorMessage className={bem('error')} name="email" component="div" style={{ color: 'red' }} />
-
-
+            <ErrorMessage
+              className={bem('error')}
+              name="email"
+              component="div"
+              style={{ color: 'red' }}
+            />
           </label>
 
           <label className={bem('label')}>
@@ -44,9 +50,12 @@ const SignUpForm = ({ changeForm, handleRegister }) => {
               name="password"
               placeholder="Password"
             />
-            <ErrorMessage className={bem('error')} name="password" component="div" style={{ color: 'red' }} />
-
-
+            <ErrorMessage
+              className={bem('error')}
+              name="password"
+              component="div"
+              style={{ color: 'red' }}
+            />
           </label>
 
           <div>
@@ -63,8 +72,6 @@ const SignUpForm = ({ changeForm, handleRegister }) => {
               </button>
             </p>
           </div>
-
-
         </Form>
       )}
     </Formik>

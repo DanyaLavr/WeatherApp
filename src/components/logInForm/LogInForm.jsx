@@ -4,8 +4,6 @@ import styles from './LogInFrom.module.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { LogInSchema } from '@/lib/validSchemas';
 
-
-
 const bem = createBem('logInForm', styles);
 
 const LogInForm = ({ handleLogin, changeForm }) => {
@@ -25,9 +23,12 @@ const LogInForm = ({ handleLogin, changeForm }) => {
           <label className={bem('label')}>
             E-mail:
             <Field className={bem('input')} type="email" name="email" placeholder="E-mail" />
-            <ErrorMessage className={bem('error')} name="email" component="div" style={{ color: 'red' }} />
-
-
+            <ErrorMessage
+              className={bem('error')}
+              name="email"
+              component="div"
+              style={{ color: 'red' }}
+            />
           </label>
 
           <label className={bem('label')}>
@@ -38,8 +39,12 @@ const LogInForm = ({ handleLogin, changeForm }) => {
               name="password"
               placeholder="Password"
             />
-            <ErrorMessage className={bem('error')} name="password" component="div" style={{ color: 'red' }} />
-
+            <ErrorMessage
+              className={bem('error')}
+              name="password"
+              component="div"
+              style={{ color: 'red' }}
+            />
           </label>
 
           <div>
@@ -56,14 +61,10 @@ const LogInForm = ({ handleLogin, changeForm }) => {
               </button>
             </p>
           </div>
-
-
-
         </Form>
       )}
     </Formik>
   );
 };
-
 
 export default LogInForm;

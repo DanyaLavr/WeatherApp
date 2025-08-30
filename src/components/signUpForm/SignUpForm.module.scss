@@ -1,116 +1,94 @@
 @use '@/style/variables' as *;
 @use '@/style/mixins/components' as *;
 
-.signUpForm{
-    &__title{
-        text-align: center;
-        font-family: var(--second-family);
-        font-weight: 500;
-        font-size: 20px;
-        margin-bottom: 30px;
-        @include media('M') {
-            margin-bottom: 20px;
-        }
-        @include media('L') {
-            font-size: 28px;
-
-        }
+.signUpForm {
+  &__title {
+    text-align: center;
+    font-family: var(--second-family);
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 30px;
+    @include media('M') {
+      margin-bottom: 20px;
     }
-
-    &__form{
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        @include media('L') {
-            gap: 30px;
-
-
-        }
+    @include media('L') {
+      font-size: 28px;
     }
-    &__label{
-        position: relative;
-        font-weight: 500;
-        font-size: 12px;
+  }
 
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        @include media('M'){
-            font-size: 14px;
-
-        }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    @include media('L') {
+      gap: 30px;
     }
+  }
+  &__label {
+    position: relative;
+    font-weight: 500;
+    font-size: 12px;
 
-    &__error{
-        position: absolute;
-        right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    @include media('M') {
+      font-size: 14px;
     }
-    &__input {
-        width: 100%;
-        height: 40px;
-        background: #e4e4e4;
-        border: none;
-        border-radius: 10px;
-        outline: none;
-        padding-left: 20px;
+  }
 
-        @include media('L'){
-            height: 50px;
+  &__error {
+    position: absolute;
+    right: 10px;
+  }
+  &__input {
+    width: 100%;
+    height: 40px;
+    background: #e4e4e4;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 20px;
 
-
-        }
-
+    @include media('L') {
+      height: 50px;
     }
+  }
 
-    &__text{
-
-        font-weight: 500;
-        font-size: 8px;
-        text-align: center;
-        @include media('M') {
-            font-size: 10px;
-
-
-
-        }
-
+  &__text {
+    font-weight: 500;
+    font-size: 8px;
+    text-align: center;
+    @include media('M') {
+      font-size: 10px;
     }
-    &__loginLink{
-        text-decoration: underline;
-        text-decoration-skip-ink: none;
-        border: none;
-        background: none;
-        padding: 0;
-        font-size: 8px;
-        @include media('M') {
-            font-size: 10px;
-
-
-
-        }
+  }
+  &__loginLink {
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 8px;
+    @include media('M') {
+      font-size: 10px;
     }
+  }
 
-    &__btn{
-        display: flex;
+  &__btn {
+    display: flex;
 
-        justify-content: center;
-        margin-bottom: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
 
-        @include media('L') {
-            margin-top: 5px;
-
-
-
-        }
-
+    @include media('L') {
+      margin-top: 5px;
     }
+  }
 
-    &__btnModal{
-        @include btn-main(10px 20px, 12, $family: $font-main, $weight: 500);
-        font-size: 14px;
-        width:114px;
-    }
-
-
-
+  &__btnModal {
+    @include btn-main(10px 20px, 12, $family: $font-main, $weight: 500);
+    font-size: 14px;
+    width: 114px;
+  }
 }
