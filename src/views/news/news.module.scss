@@ -1,0 +1,46 @@
+@use '../../style/variables' as *;
+@use '../../style/mixins/components' as *;
+.news {
+  &__section {
+    display: none;
+
+    @include media('L') {
+      display: block;
+      padding-top: 80px;
+    }
+  }
+  &__title {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  &__image {
+    width: 270px;
+    height: 208px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  &__description {
+    font-size: 16px;
+    width: 270px;
+  }
+  &__button {
+    margin-top: 40px;
+    @include btn-content(10px 30px, 16px);
+    cursor: pointer;
+  }
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+}

@@ -4,8 +4,8 @@ export const useLoading = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleLoading = () => {
-    setIsLoading((prev) => !prev);
+  const handleLoading = (state) => {
+    setIsLoading(state);
   };
   const resetError = () => {
     setError(false);
