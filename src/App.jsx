@@ -1,14 +1,13 @@
-
 import MySwiper from './views/swiper/Swiper';
-import News from '../src/views/news/News';
-import Header from "./views/header/Heder";
+import News from './views/news/News';
+import Header from './views/header/Heder';
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <MySwiper />
       <News />
-      <Header />
     </div>
   );
 }
