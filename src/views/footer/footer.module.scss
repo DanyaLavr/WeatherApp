@@ -1,0 +1,99 @@
+@use '@/style/variables' as *;
+@use '@/style/mixins/components' as *;
+
+.footer {
+  background-color: #f8a85b;
+  font-family: $font-accent;
+  padding: 30px 0;
+  &__container {
+    display: grid;
+    justify-content: center;
+    gap: 25px;
+    position: relative;
+  }
+  &__logo {
+    position: absolute;
+    left: 50px;
+    & img {
+      width: 50px;
+      height: 35px;
+    }
+  }
+  &__address,
+  &__contact {
+    text-align: center;
+    font-size: 8px;
+    & h4 {
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+  }
+  &__icons {
+    display: flex;
+    gap: 20px;
+  }
+  &__media-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+@include media('S') {
+  .footer {
+    &__logo {
+      position: absolute;
+      left: 0;
+      & img {
+        width: 50px;
+        height: 35px;
+      }
+    }
+  }
+}
+@include media('M') {
+  .footer {
+    padding: 35px 0;
+    &__container {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 100px;
+    }
+    &__logo {
+      position: static;
+      & img {
+        width: 58px;
+        height: 40px;
+      }
+    }
+    &__address,
+    &__contact {
+      text-align: start;
+      font-size: 10px;
+      & h4 {
+        font-size: 14px;
+      }
+    }
+  }
+}
+@include media('L') {
+  .footer {
+    padding: 40px 0;
+    &__logo {
+      & img {
+        width: 90px;
+        height: 62px;
+      }
+    }
+    &__address,
+    &__contact {
+      font-size: 12px;
+      & h4 {
+        font-size: 16px;
+      }
+    }
+    &__media-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}

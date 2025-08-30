@@ -1,19 +1,15 @@
-
-
-import MySwiper from './views/swiper/Swiper';
-import News from '../src/views/news/News';
-import Footer from './views/Footer';
+// import MySwiper from './views/swiper/Swiper';
+// import News from '../src/views/news/News';
+import Footer from './views/footer/Footer';
 
 function App() {
   return (
     <div className="App">
-       <Statistic />
-      <Footer/>
-      <MySwiper />
-      <News />
+      {/* <MySwiper />
+      <News /> */}
+      <Footer />
     </div>
   );
 }
-
 
 export default App;
