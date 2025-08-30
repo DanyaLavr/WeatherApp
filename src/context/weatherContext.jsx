@@ -6,6 +6,7 @@ export const WeatherProvider = ({ children }) => {
   const [dailyForecast, setDailyForecast] = useState(false);
   const [weeklyForecast, setWeeklyForecast] = useState(false);
   const [choosenCard, setChoosenCard] = useState(null);
+
   const deleteLastCard = () => {
     setCardsArray((prev) => prev.slice(0, -1));
   };
