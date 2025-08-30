@@ -9,7 +9,9 @@ html {
   font-family: $font-main;
   font-weight: 500;
 }
-
+button{
+  cursor: pointer;
+}
 .button--primary {
   @include btn-content(6px 11.5px, 9px);
   @include media('L') {

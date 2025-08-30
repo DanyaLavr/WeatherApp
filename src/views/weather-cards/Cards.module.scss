@@ -11,6 +11,11 @@
   @include media('L') {
     max-width: 1140px;
   }
+  &-error-message{
+  color: red;
+  margin: 20px 0;
+  text-align: center;
+  }
   &__item {
     @include flex-center;
     flex-direction: column;
@@ -97,7 +102,7 @@
   }
   &__date-wrapper {
     @include flex-center(space-between);
-    max-width: 120px;
+    max-width: 130px;
     margin-bottom: 13px;
     width: 100%;
     @include media('M') {
@@ -112,7 +117,7 @@
     max-width: 230px;
     width: 100%;
   }
-  &__icon-heart--active {
-    fill: red;
-  }
+  &__error-text{
+  color: red;
+}
 }

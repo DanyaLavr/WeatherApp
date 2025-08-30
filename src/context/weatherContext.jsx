@@ -11,26 +11,55 @@ export const WeatherProvider = ({ children }) => {
   const [weeklyForecast, setWeeklyForecast] = useState(false);
   const [weeklyForecastCordinates, setWeeklyForecastCordinates] = useState({});
   const [choosenCard, setChoosenCard] = useState(null);
+  const [error, setError] = useState('');
+
   const maxCards = useMaxCards();
 
-  const handleAddingNewCard = (card) => {
-    setCardsArray((prev) => {
-      if (prev.some((c) => c.name.toLowerCase() === card.name.toLowerCase())) {
-        return prev;
+  const trimPreservingFavorites = (arr, max) => {
+    if (!Array.isArray(arr)) return [];
+    if (arr.length <= max) return arr;
+    const favourites = arr.filter((c) => c.isFavorite);
+    const nonFavourites = arr.filter((c) => !c.isFavorite);
+    const availableSlots = Math.max(0, max - favourites.length);
+    const keptNonFav = nonFavourites.slice(0, availableSlots);
+    const keptNonFavNames = new Set(keptNonFav.map((c) => c.name));
+    const result = [];
+    for (const item of arr) {
+      if (item.isFavorite) {
+        result.push(item);
+      } else if (keptNonFavNames.has(item.name)) {
+        result.push(item);
+        keptNonFavNames.delete(item.name);
       }
-      const newCards = prev.length >= maxCards ? prev.slice(0, maxCards - 1) : prev;
-      return [card, ...newCards];
+    }
+
+    return result;
+  };
+
+  const handleAddingNewCard = (card) => {
+    const cardWithFav = { ...card, isFavorite: card.isFavorite ?? false };
+    setCardsArray((prev) => {
+      const base = Array.isArray(prev) ? prev : [];
+      if (base.some((c) => c.name.toLowerCase() === cardWithFav.name.toLowerCase())) {
+        return base;
+      }
+      const newArr = [cardWithFav, ...base];
+      return trimPreservingFavorites(newArr, maxCards);
     });
   };
+
   const handleWeeklyForecast = (obj) => {
     setWeeklyForecastCordinates(obj);
   };
   const deleteLastCard = () => {
-    setCardsArray((prev) => prev.slice(0, -1));
+    setCardsArray((prev) => {
+      const base = Array.isArray(prev) ? prev : [];
+      return base.slice(0, -1);
+    });
   };
 
   const getCard = (id) => {
-    console.log(id, cardsArr);
+    if (!Array.isArray(cardsArr)) return null;
     return cardsArr.find((card) => card.id === id);
   };
 
@@ -39,57 +68,79 @@ export const WeatherProvider = ({ children }) => {
 
   const handleChooseCard = (id) => setChoosenCard(getCard(id));
   const resetChoosenCard = () => setChoosenCard(null);
+
   useEffect(() => {
     const loadCities = async () => {
       try {
-        let cities = ['Kyiv'];
-        if (maxCards >= 2) cities.push('Lviv');
-        if (maxCards >= 3) cities.push('Berlin');
-
+        const savedCards = JSON.parse(localStorage.getItem('cardsArr'));
+        if (savedCards && savedCards.length > 0) {
+          setCardsArray(savedCards);
+          return;
+        }
+        const allDefault = ['Kyiv', 'Lviv', 'Berlin'];
+        const cities = allDefault.slice(0, maxCards);
         const data = await Promise.all(cities.map((city) => fetchWeather(city)));
-
-        setCardsArray(data);
+        const cardsWithFav = data.map((card) => ({ ...card, isFavorite: false }));
+        setCardsArray(cardsWithFav);
       } catch (err) {
         console.error('Failed to fetch initial city weather:', err);
       }
     };
     loadCities();
   }, [maxCards]);
+
   const handleSearch = async () => {
     const newCity = inputValue.trim();
     if (!newCity) return;
 
     setInputValue('');
-
+    setError('');
     try {
       const newWeather = await fetchWeather(newCity);
+      const cardWithFav = { ...newWeather, isFavorite: false };
 
       setCardsArray((prev) => {
-        if (prev.some((card) => card.name.toLowerCase() === newWeather.name.toLowerCase()))
-          return prev;
-        const allBaseCities = ['Kyiv', 'Lviv', 'Berlin'];
-        const onlyBase = prev.every((card) => allBaseCities.includes(card.name));
-        if (onlyBase) {
-          return [newWeather];
+        const base = Array.isArray(prev) ? prev : [];
+        if (base.some((card) => card.name.toLowerCase() === cardWithFav.name.toLowerCase())) {
+          return base;
         }
-        const newArr = [...prev, newWeather];
-        if (newArr.length > maxCards) {
-          return newArr.slice(-maxCards);
-        }
-        return newArr;
+        const newArr = [cardWithFav, ...base];
+        return trimPreservingFavorites(newArr, maxCards);
       });
     } catch (err) {
-      console.error('Failed to fetch new city weather:', err);
+      setError(`City "${newCity}" not found!`);
     }
   };
   const deleteCardByName = (name) => {
-    setCardsArray((prev) => prev.filter((card) => card.name !== name));
+    setCardsArray((prev) => {
+      const base = Array.isArray(prev) ? prev : [];
+      return base.filter((card) => card.name !== name);
+    });
   };
+  const toggleFavorite = (cityName) => {
+    setCardsArray((prev) => {
+      const base = Array.isArray(prev) ? prev : [];
+      const updated = base.map((card) =>
+        card.name === cityName ? { ...card, isFavorite: !card.isFavorite } : card
+      );
+      return updated;
+    });
+  };
+  useEffect(() => {
+    if (Array.isArray(cardsArr)) {
+      try {
+        localStorage.setItem('cardsArr', JSON.stringify(cardsArr));
+      } catch (e) {
+        console.error('Failed to save cards to localStorage', e);
+      }
+    }
+  }, [cardsArr]);
 
   return (
     <WeatherContext.Provider
       value={{
         cardsArr,
+        setCardsArray,
         inputValue,
         setInputValue,
         handleSearch,
@@ -108,6 +159,9 @@ export const WeatherProvider = ({ children }) => {
         choosenCard,
         handleChooseCard,
         resetChoosenCard,
+
+        toggleFavorite,
+        error
       }}
     >
       {children}

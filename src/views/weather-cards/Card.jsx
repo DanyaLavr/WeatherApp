@@ -14,8 +14,6 @@ function timeNow() {
   });
 }
 
-const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-
 export default function Card() {
   const {
     cardsArr,
@@ -28,7 +26,10 @@ export default function Card() {
     toggleWeeklyForecast,
     weeklyForecast,
     handleChooseCard,
+    toggleFavorite,
+    error,
   } = useContext(WeatherContext);
+  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const [time, setTime] = useState(timeNow());
   const date = new Date();
   const dayOfWeek = date.getDay();
@@ -45,25 +46,14 @@ export default function Card() {
     deleteCardByName(cityName);
   };
 
-  const handleAddToFavorites = (e) => {
-    const className = bem('icon-heart--active');
-    const isActive = e.target.classList.contains(className);
-
-    if (isActive) {
-      e.target.classList.remove(className);
-    } else {
-      e.target.classList.add(className);
-    }
-  };
   if (!cardsArr) return <Loader />;
   return (
     <>
       {cardsArr.map((item) => {
         const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
         const countryName = regionNames.of(item.sys.country);
-
         return (
-          <li key={item.id} className={bem('item')}>
+          <li key={item.name} className={bem('item')}>
             <div className={bem('country-info-container')}>
               <p className={bem('country-info')}>{item.name}</p>
               <p className={bem('country-info')}>{countryName}</p>
@@ -109,8 +99,8 @@ export default function Card() {
                 imgSrc="/images/weather-cards/sprite.svg#icon-spinner"
               />
               <Button
-                btnEvent={(e) => handleAddToFavorites(e, item.name)}
-                btnClass="heart"
+                btnEvent={() => toggleFavorite(item.name)}
+                btnClass={item.isFavorite ? 'heart--active' : 'heart'}
                 imgSrc="/images/weather-cards/sprite.svg#icon-heart"
               />
               <button

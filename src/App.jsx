@@ -11,10 +11,10 @@ const App = () => {
   return (
     <div className="App">
       <Cards />
-      {choosenCard && <DetailsList />}
+      {/* {choosenCard && <DetailsList />}
       {weeklyForecast && <Forecast />}
       <News />
-      <MySwiper />
+      <MySwiper /> */}
     </div>
   );
 };
