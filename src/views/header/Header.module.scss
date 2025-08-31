@@ -1,0 +1,89 @@
+@use '@/style/variables' as *;
+@use '@/style/mixins/components' as *;
+
+.header {
+  padding: 12px 0;
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 42px;
+    list-style: none;
+  }
+
+  &__headerWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__headerBlock {
+    width: 455px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // justify-content: space-between;
+  }
+
+  &__navigation {
+    display: none;
+    @include media('M') {
+      display: block;
+      margin-left: 57px;
+    }
+    @include media('L') {
+      margin-left: 111px;
+    }
+  }
+
+  &__userBlockWrapper {
+    display: none;
+    @include media('M') {
+      display: block;
+    }
+  }
+  &__userBlock {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+  }
+
+  &__item-link {
+    color: $color-main;
+    cursor: pointer;
+    transition: 1s;
+    font-size: 10px;
+
+    @include media('L') {
+      font-size: 12px;
+    }
+  }
+
+  &__item-link:hover {
+    color: $color-primary;
+  }
+
+  &__headerMenuBtn {
+    background: none;
+    border: none;
+
+    @include media('S') {
+      display: block;
+    }
+    @include media('M') {
+      display: none;
+    }
+  }
+
+  &__buttonInsideBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  &__btnHeader {
+    @include btn-main(10px 20px, 12, $family: $font-main, $weight: 500);
+    font-size: 12px;
+  }
+}

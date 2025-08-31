@@ -1,6 +1,6 @@
 @use './variables' as *;
 @use './mixins/components' as *;
-@import 'normalize.css';
+@import './reset.css';
 * {
   box-sizing: border-box;
 }
@@ -9,9 +9,25 @@ html {
   font-family: $font-main;
   font-weight: 500;
 }
+
+.button--primary {
+  @include btn-content(6px 11.5px, 9px);
+  @include media('L') {
+    @include btn-main(8px 18px, 10px);
+  }
+}
+
+.button--primary {
+  @include btn-content(6px 11.5px, 9px);
+  @include media('L') {
+    @include btn-main(8px 18px, 10px);
+  }
+}
 .container {
   width: 100%;
   margin: 0 auto;
+  padding-left: 50px;
+  padding-right: auto;
   padding-left: 50px;
   padding-right: 50px;
 
@@ -19,11 +35,29 @@ html {
     width: 380px;
     padding-left: 0;
     padding-right: 0;
+
+    @include media('M') {
+      width: 634px;
+    }
+
+    @include media('L') {
+      width: 1140px;
+    }
   }
-  @include media('M') {
-    width: 634px;
-  }
-  @include media('L') {
-    width: 1140px;
-  }
+}
+
+a {
+  color: #000;
+
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+.swiper-slide {
+  width: 381px !important;
 }

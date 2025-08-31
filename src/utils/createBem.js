@@ -8,7 +8,7 @@ const MODIFIER_DIVIDER = '--';
  * @returns {function} - Функція для створення класів: bem(element?, modifiers?)
  */
 export const createBem = (block, classes = {}) => {
-  const getClassName = className => classes[className] || className;
+  const getClassName = (className) => classes[className] || className;
 
   return (element = '', modifiers = {}) => {
     let base = element ? `${block}${ELEMENT_DIVIDER}${element}` : block;
