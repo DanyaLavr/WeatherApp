@@ -11,3 +11,8 @@ const Example = () => {
     </header>
   );
 };
+<<<<<<< HEAD
+=======
+
+export default Example
+>>>>>>> future-main

@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "react-scripts start",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
@@ -17,7 +18,12 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "recharts": "^3.1.2",
+    "firebase": "^12.1.0",
+    "formik": "^2.4.6",
+    "framer-motion": "^12.23.12",
     "sass": "^1.89.2",
+    "react-transition-group": "^4.4.5",
+    "yup": "^1.7.0",
     "swiper": "^11.2.10"
   },
   "devDependencies": {

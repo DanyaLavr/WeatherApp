@@ -135,9 +135,9 @@ export const WeatherProvider = ({ children }) => {
       }
     }
   }, [cardsArr]);
-useEffect(() => {
-  setCardsArray((prev) => trimPreservingFavorites(prev, maxCards));
-}, [maxCards]);
+  useEffect(() => {
+    setCardsArray((prev) => trimPreservingFavorites(prev, maxCards));
+  }, [maxCards]);
   return (
     <WeatherContext.Provider
       value={{
@@ -163,7 +163,7 @@ useEffect(() => {
         resetChoosenCard,
 
         toggleFavorite,
-        error
+        error,
       }}
     >
       {children}

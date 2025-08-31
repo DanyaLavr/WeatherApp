@@ -1,7 +1,10 @@
 import DetailsList from './views/details/DetailsList';
+// import MySwiper from './views/swiper/Swiper';
+import Header from './views/header/Heder';
+import Footer from './views/footer/Footer';
 import Forecast from '../src/views/forecast/Forecast';
-import MySwiper from './views/swiper/Swiper';
 import News from '../src/views/news/News';
+import Main from './components/hero/Hero';
 import React from 'react';
 import Cards from './views/weather-cards/Cards';
 import { WeatherContext } from './context/weatherContext';
@@ -10,11 +13,14 @@ const App = () => {
   const { weeklyForecast, choosenCard } = useContext(WeatherContext);
   return (
     <div className="App">
+      <Header />
+      <Main />
       <Cards />
-      {/* {choosenCard && <DetailsList />}
+      {choosenCard && <DetailsList />}
       {weeklyForecast && <Forecast />}
       <News />
-      <MySwiper /> */}
+      {/* <MySwiper /> */}
+      <Footer />
     </div>
   );
 };
