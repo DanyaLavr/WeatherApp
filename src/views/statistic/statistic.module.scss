@@ -1,0 +1,39 @@
+@use '@/style/variables' as *;
+@use '@/style/mixins/components' as *;
+@use '@/style/mixins/typography' as *;
+.statistic {
+  &__container {
+    background-color: #e8e8e8;
+    border-radius: 16px;
+    padding: 20px;
+  }
+  &__title {
+    margin-bottom: 15px;
+    @include h2-header;
+    @include media('M') {
+      margin-bottom: 24px;
+    }
+    @include media('L') {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+// @media (max-width: 768px) {
+//   .statistic-container {
+//     max-width: 700px;
+//     margin: 0 30px;
+//   }
+// }
+
+// @media (max-width: 320px) {
+//   .statistic-container {
+//     max-width: 320px;
+//     margin: 0 30px;
+//   }
+
+//   .statistic-container h2 {
+//     font-size: 16px;
+//     text-align: center;
+//   }
+// }
