@@ -11,3 +11,5 @@ const Example = () => {
     </header>
   );
 };
+
+export default Example

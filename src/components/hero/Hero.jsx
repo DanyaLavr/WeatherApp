@@ -24,7 +24,7 @@ const Hero = () => {
         <div className={bem("search_box")}>
           <input className={bem("search_input")} type="text" placeholder="Search location..." />
           <button className={bem("search_button")} type="submit">
-            <span className={bem("search")} role="img" aria-label="search"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <span className={bem("search")} role="img" aria-label="search"><i className="fa-solid fa-magnifying-glass"></i></span>
           </button>
         </div>
       </div >
