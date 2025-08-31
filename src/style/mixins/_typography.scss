@@ -4,7 +4,8 @@
 @mixin h1-header {
   font-weight: 600;
   font-size: 14px;
-  color: $color-main;
+  color: $color-secondary;
+  text-align: center;
   @include media('M') {
     font-size: 20px;
   }

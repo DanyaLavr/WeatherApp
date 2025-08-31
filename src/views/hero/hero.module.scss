@@ -1,0 +1,189 @@
+@use '@/style/variables' as *;
+@use '@/style/mixins/components' as *;
+@use '@/style/mixins/typography' as *;
+
+.hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url('/sections/main/main_background_mobile.webp');
+
+  @include media('M') {
+    background-image: url('/sections/main/main_background_tablet.webp');
+  }
+  @include media('L') {
+    background-image: url('/sections/main/main_background.png');
+  }
+  &__container {
+    display: grid;
+    justify-content: center;
+  }
+  &__title {
+    padding: 50px 0 35px 0;
+    @include h1-header;
+    @include media('M') {
+      padding: 40px 0 40px 0;
+    }
+    @include media('L') {
+      padding: 100px 0 0 0;
+    }
+  }
+
+  &__info {
+    @include media('M') {
+      display: flex;
+      margin-bottom: 64px;
+    }
+    @include media('L') {
+      padding: 80px 0 0 0;
+    }
+  }
+
+  &__info-text {
+    color: $color-secondary;
+    font-size: 10px;
+    width: 136px;
+    height: 36px;
+    position: relative;
+    top: 0px;
+    right: -25px;
+    @include media('M') {
+      top: 0;
+      right: 0;
+      font-size: 14px;
+      width: 172px;
+      height: 68px;
+      text-align: right;
+    }
+    @include media('L') {
+      font-size: 24px;
+      text-align: right;
+      width: 347px;
+      height: 87px;
+    }
+  }
+
+  &__line {
+    width: 0;
+    border: 1px solid $color-secondary;
+    height: 80px;
+    position: relative;
+    top: -34px;
+    right: 0;
+    @include media('M') {
+      height: 110px;
+      top: 0;
+      margin: 0 34px;
+    }
+    @include media('L') {
+      border: 1.5px solid $color-secondary;
+      height: 144px;
+    }
+  }
+
+  &__info-date {
+    color: $color-secondary;
+    font-size: 10px;
+    width: 69px;
+    height: 24px;
+    position: relative;
+    top: -71px;
+    right: -25px;
+
+    @include media('M') {
+      top: 0;
+      right: 0;
+      font-size: 14px;
+      width: 96px;
+      height: 34px;
+    }
+    @include media('L') {
+      font-size: 24px;
+      width: 164px;
+      height: 58px;
+    }
+  }
+
+  &__search_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 48px 0 100px 0;
+
+    @include media('M') {
+      padding: 0 0 40px 0;
+    }
+    @include media('L') {
+      padding: 80px 0 100px 0;
+    }
+  }
+
+  &__search_input {
+    background-color: $color-content-backdrop;
+    border-radius: 10px 0 0 10px;
+    border: none;
+    outline: none;
+    width: 173px;
+    height: 15px;
+    font-size: 6px;
+    padding: 4px 0 4px 10px;
+    @include media('M') {
+      width: 373px;
+      height: 27px;
+      font-size: 10px;
+      padding: 8px 0 7px 19px;
+    }
+    @include media('L') {
+      padding: 9px 0 12px 29px;
+      font-size: 14px;
+      width: 625px;
+      height: 42px;
+    }
+  }
+
+  &__search_button {
+    background: $color-primary;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    width: 16px;
+    height: 15px;
+    position: relative;
+    font-size: 8px;
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @include media('M') {
+      font-size: 16px;
+      border-radius: 0 10px 10px 0;
+      width: 28px;
+      height: 27px;
+    }
+    @include media('L') {
+      font-size: 25px;
+      border-left: 2px solid $color-main;
+      width: 45px;
+      height: 42px;
+    }
+  }
+
+  &__search {
+    border-radius: 0 5px 5px 0;
+    width: 16px;
+    height: 15px;
+    width: 8px;
+    height: 8px;
+    @include media('M') {
+      border-radius: 0 10px 10px 0;
+      width: 28px;
+      height: 27px;
+    }
+    @include media('L') {
+      width: 45px;
+      height: 42px;
+    }
+  }
+}
