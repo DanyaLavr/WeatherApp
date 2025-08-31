@@ -1,4 +1,4 @@
-import Main from "./components/main/Main"
+import Main from "./components/hero/Hero"
 import Example from "./utils/Example"
 
 function App() {
