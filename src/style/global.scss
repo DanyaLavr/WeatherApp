@@ -8,6 +8,7 @@ html {
   color: $color-main;
   font-family: $font-main;
   font-weight: 500;
+  scroll-behavior: smooth;
 }
 .App {
   display: flex;

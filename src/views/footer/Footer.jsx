@@ -8,7 +8,7 @@ const bem = createBem('footer', styles);
 
 const Footer = () => {
   return (
-    <footer className={bem()}>
+    <footer id="footer" className={bem()}>
       <div className={`container ${bem('container')}`}>
         <Logo className={bem('logo')} />
         <div className={bem('address')}>

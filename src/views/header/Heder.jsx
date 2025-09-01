@@ -60,12 +60,12 @@ export default function Header() {
                   </a>
                 </li>
                 <li className={bem('item')}>
-                  <a className={bem('item-link')} href="">
+                  <a className={bem('item-link')} href="#footer">
                     Contacts
                   </a>
                 </li>
                 <li className={bem('item')}>
-                  <a className={bem('item-link')} href="">
+                  <a className={bem('item-link')} href="#weather-card">
                     Menu
                   </a>
                 </li>
