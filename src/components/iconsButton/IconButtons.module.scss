@@ -1,0 +1,27 @@
+.weather-cards {
+  &__icon-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+  &__icon--spinner {
+    width: 21px;
+    height: 21px;
+  }
+  &__icon--heart {
+    fill: brown;
+  }
+    &__icon:hover{
+      fill: red;
+    }
+      &__icon--heart--active {
+    fill: red;
+  }
+    &__icon--heart--active:hover {
+    fill: brown;
+  }
+}

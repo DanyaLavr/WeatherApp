@@ -1,4 +1,4 @@
-const NEWS_API = import.meta.env.VITE_API_KEY;
+const NEWS_API = import.meta.env.VITE_NEWS_API_KEY;
 
 export async function fetchNews(pageCards) {
   const response = await fetch(

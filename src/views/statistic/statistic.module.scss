@@ -1,0 +1,22 @@
+@use '@/style/variables' as *;
+@use '@/style/mixins/components' as *;
+@use '@/style/mixins/typography' as *;
+.statistic {
+  @include section-padding-top;
+  &__container {
+    position: relative;
+    background-color: #e8e8e8;
+    border-radius: 16px;
+    padding: 20px;
+  }
+  &__title {
+    margin-bottom: 15px;
+    @include h2-header;
+    @include media('M') {
+      margin-bottom: 24px;
+    }
+    @include media('L') {
+      margin-bottom: 20px;
+    }
+  }
+}

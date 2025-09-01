@@ -1,0 +1,139 @@
+@use '@/style/variables' as *;
+@use '@/style/mixins/components' as *;
+@use '@/style/mixins/typography' as *;
+
+.weather__section {
+  @include section-padding-top();
+  .weather__content {
+    position: relative;
+    padding: 18px 25px 35px 25px;
+    border-radius: 15px;
+    background: $color-backdrop;
+    @include media('M') {
+      padding: 20px 35px 35px 35px;
+    }
+    @include media('L') {
+      padding: 26px 78px 42px 78px;
+    }
+  }
+}
+
+.weather {
+  &__title {
+    color: $color-main;
+    margin-bottom: 25px;
+    margin-left: 18px;
+    @include h2-header;
+    @include media('M') {
+      font-size: 12px;
+      margin-bottom: 17px;
+    }
+    @include media('L') {
+      font-size: 16px;
+      margin-left: 0;
+    }
+  }
+  &__list {
+    @include flex-center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 35px;
+    column-gap: 43px;
+    @include media('M') {
+      flex-direction: column;
+      gap: 17px;
+      justify-content: inherit;
+    }
+    @include media('L') {
+      gap: 10px;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    background: $color-content-backdrop;
+    padding: 10px 25px 22px 25px;
+    text-align: center;
+    width: 100%;
+    @media (min-width: 393px) {
+      max-width: 100px;
+    }
+    @include media('M') {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 2px 16px;
+      max-width: 564px;
+    }
+
+    @include media('L') {
+      max-width: 986px;
+    }
+  }
+  &__item-date {
+    text-align: center;
+    font-size: 10px;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    @include media('M') {
+      text-align: start;
+      margin: 0;
+      font-size: 14px;
+    }
+    @include media('L') {
+      font-size: 16px;
+    }
+  }
+  &__item-image-container {
+    @include flex-center;
+    text-align: center;
+    flex-direction: column;
+    gap: 7px;
+    @include media('M') {
+      flex-direction: row;
+      gap: 15px;
+    }
+  }
+  &__item-image {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 7px;
+    user-select: none;
+    @include media('M') {
+      margin: 0;
+      width: 35px;
+      height: 35px;
+    }
+    @include media('L') {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  &__item-temperature {
+    font-size: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    @include media('M') {
+      font-size: 14px;
+      margin: 0;
+    }
+    @include media('L') {
+      font-size: 16px;
+    }
+  }
+
+  &__item-description {
+    font-size: 10px;
+    text-align: center;
+
+    @include media('M') {
+      font-size: 14px;
+      text-align: end;
+    }
+    @include media('L') {
+      font-size: 16px;
+    }
+  }
+}

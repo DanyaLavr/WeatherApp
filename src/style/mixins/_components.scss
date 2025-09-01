@@ -1,6 +1,7 @@
 @use '../variables' as *;
 @mixin btn($padding, $size: 10px, $family: $font-main, $weight: 500) {
   background-color: $color-primary;
+  font-size: $size;
   color: $color-main;
   padding: $padding;
   border: none;
@@ -40,10 +41,10 @@
 @mixin margin-center {
   margin: 0 auto;
 }
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@mixin flex-center($justify-content: center, $align-items: center, $display: flex) {
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
 }
 @mixin media($breakpoint) {
   @if $breakpoint == 'S' {

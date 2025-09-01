@@ -1,0 +1,93 @@
+@use '@/style/variables' as *;
+@use '@/style/mixins/components' as *;
+.details {
+  @include section-padding-top;
+  &__list {
+    position: relative;
+    background-color: $color-backdrop;
+    padding: 35px 43px;
+    display: grid;
+    gap: 35px;
+    border-radius: 15px;
+    @include media('M') {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 30px;
+    }
+    @include media('L') {
+      padding: 40px 78px;
+    }
+  }
+  &__item {
+    display: grid;
+    gap: 18px;
+    background-color: $color-content-backdrop;
+    padding: 15px 0 30px;
+    border-radius: 10px;
+    @include media('M') {
+      gap: 37px;
+    }
+    @include media('L') {
+      gap: 23px;
+    }
+    &:not(:has(.details__icon)) {
+      gap: 22px;
+      padding-bottom: 49px;
+      @include media('M') {
+        gap: 29px;
+        padding-bottom: 65px;
+      }
+      @include media('L') {
+        gap: 19px;
+        padding-bottom: 40px;
+      }
+    }
+  }
+  &__content {
+    display: grid;
+    justify-items: center;
+    gap: 8px;
+    @include media('L') {
+      gap: 10px;
+    }
+  }
+  &__title {
+    font-size: 10px;
+    @include media('M') {
+      font-size: 12px;
+    }
+    @include media('L') {
+      font-size: 16px;
+    }
+  }
+  &__value {
+    font-size: 14px;
+    @include media('M') {
+      font-size: 16px;
+    }
+    @include media('L') {
+      font-size: 32px;
+    }
+  }
+  &__icon {
+    @include margin-center;
+
+    aspect-ratio: 1/1;
+    width: 35px;
+    & svg {
+      width: 100%;
+      height: 100%;
+    }
+    @include media('M') {
+      width: 60px;
+    }
+    @include media('L') {
+      width: 85px;
+    }
+  }
+
+  &__error {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+}

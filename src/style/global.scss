@@ -9,7 +9,17 @@ html {
   font-family: $font-main;
   font-weight: 500;
 }
-
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
+button {
+  cursor: pointer;
+}
 .button--primary {
   @include btn-content(6px 11.5px, 9px);
   @include media('L') {
@@ -26,8 +36,6 @@ html {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding-left: 50px;
-  padding-right: auto;
   padding-left: 50px;
   padding-right: 50px;
 
@@ -60,4 +68,9 @@ ol {
 
 .swiper-slide {
   width: 381px !important;
+}
+
+.recharts-wrapper,
+.recharts-surface {
+  outline: none !important;
 }
