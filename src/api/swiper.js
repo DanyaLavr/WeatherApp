@@ -8,6 +8,5 @@ export const fetchPictures = async () => {
     return res.data.hits;
   } catch (error) {
     console.log(error);
-  } finally {
   }
 };

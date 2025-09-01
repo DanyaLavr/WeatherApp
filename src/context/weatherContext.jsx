@@ -53,7 +53,6 @@ export const WeatherProvider = ({ children }) => {
   const handleHourlyForecast = async (city) => {
     try {
       const renderArr = await fetchStatistic(city);
-      console.log(renderArr);
       if (window.innerWidth <= 1439 && window.innerWidth >= 834) {
         setHourlyForecast(renderArr.slice(0, 8));
       } else if (window.innerWidth <= 833) {
@@ -64,7 +63,6 @@ export const WeatherProvider = ({ children }) => {
         );
       } else setHourlyForecast(renderArr);
     } catch (err) {
-      console.error(err);
       setError('Не вдалося завантажити погоду.');
     }
   };

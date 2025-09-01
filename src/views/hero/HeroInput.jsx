@@ -11,7 +11,6 @@ const HeroInput = () => {
   const refInput = useRef();
   const searchWeather = async (city) => {
     const res = await fetchWeather(city);
-    console.log(res);
     handleAddingNewCard(res);
   };
   return (

@@ -107,8 +107,6 @@ export default function Card() {
               <button
                 className={`${bem('button')} ${bem('button-more')}`}
                 onClick={() => {
-                  console.log(item.id);
-
                   handleChooseCard(item.id);
                 }}
               >

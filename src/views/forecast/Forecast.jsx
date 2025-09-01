@@ -17,7 +17,6 @@ const Forecast = () => {
     const fetchData = async () => {
       try {
         const data = await fetchWeeklyForecast(weeklyForecastCordinates);
-        console.log(data);
         const filtered = [];
         let lastDate = null;
 

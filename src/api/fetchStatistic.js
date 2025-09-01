@@ -15,13 +15,9 @@ const formatDateTime = (str) => {
 };
 
 export const fetchStatistic = async (city) => {
-  console.log('city', city);
-  const apiKey = 'fcc3ac1b514a2bdf8898cc0061159146';
-  // const city = 'Alicante';
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${import.meta.env.VITE_WEATHER_API_KEY}`;
   try {
     const response = await axios.get(url);
-    console.log(response);
     const weatherList = response.data.list;
     const renderArr = weatherList.map((elem) => {
       const weatherTime = formatDateTime(elem.dt_txt);
@@ -33,7 +29,8 @@ export const fetchStatistic = async (city) => {
         description: elem.weather[0].description,
       };
     });
-    console.log('renderArr', renderArr);
     return renderArr;
-  } catch {}
+  } catch (error) {
+    return error;
+  }
 };
