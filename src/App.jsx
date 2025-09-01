@@ -5,7 +5,7 @@ import DetailsList from './views/details/DetailsList';
 import Statistic from './views/statistic/Statistic';
 import Forecast from './views/forecast/Forecast';
 import News from './views/news/News';
-import MySwiper from './views/swiper/Swiper';
+// import MySwiper from './views/swiper/Swiper';
 import Footer from './views/footer/Footer';
 
 import { WeatherContext } from './context/weatherContext';
@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <main>
+      {/* <main>
         <Hero />
         <Cards />
         {choosenCard && <DetailsList />}
@@ -25,7 +25,7 @@ const App = () => {
         <News />
         <MySwiper />
       </main>
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };
