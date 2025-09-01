@@ -55,7 +55,7 @@ export default function Header() {
             <nav className={bem('navigation')}>
               <ul className={bem('menu')}>
                 <li className={bem('item')}>
-                  <a className={bem('item-link')} href="">
+                  <a className={bem('item-link')} href="#hero">
                     Who we are
                   </a>
                 </li>

@@ -6,7 +6,7 @@ const bem = createBem('hero', styles);
 
 const Hero = () => {
   return (
-    <section className={bem()}>
+    <section id="hero" className={bem()}>
       <div className={`container ${bem('container')}`}>
         <h1 className={bem('title')}>Weather dashboard</h1>
 
