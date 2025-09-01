@@ -2,7 +2,9 @@
 @use '@/style/mixins/components' as *;
 @use '@/style/mixins/typography' as *;
 .statistic {
+  @include section-padding-top;
   &__container {
+    position: relative;
     background-color: #e8e8e8;
     border-radius: 16px;
     padding: 20px;

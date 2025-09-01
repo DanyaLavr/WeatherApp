@@ -41,7 +41,7 @@ const Forecast = () => {
     <section className={bem('section')}>
       <div className="container">
         <div className={bem('content')}>
-          <h1 className={bem('title')}>Weekly forecast</h1>
+          <h2 className={bem('title')}>Weekly forecast</h2>
           <CloseButton onClick={() => toggleWeeklyForecast()} />
           <ul className={bem('list')}>
             {forecastData.map((item, key) => {

@@ -1,6 +1,6 @@
 import styles from './hero.module.scss';
 import { createBem } from '@/utils/createBem';
-import fetchWeather from '@/api/openWeather';
+import { fetchWeather } from '@/api/openWeather';
 import { useContext, useRef } from 'react';
 import { WeatherContext } from '@/context/weatherContext';
 

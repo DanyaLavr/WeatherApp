@@ -4,21 +4,21 @@ import Header from './views/header/Heder';
 import Footer from './views/footer/Footer';
 import Forecast from './views/forecast/Forecast';
 import News from './views/news/News';
-import Main from './views/hero/Hero';
+import Hero from './views/hero/Hero';
 import Cards from './views/weather-cards/Cards';
 import Statistic from './views/statistic/Statistic';
 import { WeatherContext } from './context/weatherContext';
 import { useContext } from 'react';
 const App = () => {
-  const { weeklyForecast, choosenCard } = useContext(WeatherContext);
+  const { weeklyForecast, choosenCard, hourlyForecast } = useContext(WeatherContext);
   return (
     <div className="App">
       <Header />
       <main>
-        <Main />
+        <Hero />
         <Cards />
         {choosenCard && <DetailsList />}
-        <Statistic />
+        {hourlyForecast && <Statistic />}
         {weeklyForecast && <Forecast />}
         <News />
         <MySwiper />

@@ -9,6 +9,14 @@ html {
   font-family: $font-main;
   font-weight: 500;
 }
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+}
 button {
   cursor: pointer;
 }

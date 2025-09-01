@@ -3,8 +3,8 @@ import { WeatherContext } from '@/context/weatherContext';
 import styles from './Cards.module.scss';
 import Loader from '@/components/loader/Loader';
 import { createBem } from '@/utils/createBem';
-import fetchWeather from '@/api/openWeather';
-import Button from '../../components/iconsButton/IconButtons';
+import { fetchWeather } from '@/api/openWeather';
+import Button from '@/components/iconsButton/IconButtons';
 const bem = createBem('weather-cards', styles);
 
 function timeNow() {
@@ -19,15 +19,11 @@ export default function Card() {
     cardsArr,
     handleAddingNewCard,
     deleteCardByName,
-    handleSearch,
-    inputValue,
-    setInputValue,
+    handleHourlyForecast,
     handleWeeklyForecast,
     toggleWeeklyForecast,
-    weeklyForecast,
     handleChooseCard,
     toggleFavorite,
-    error,
   } = useContext(WeatherContext);
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const [time, setTime] = useState(timeNow());
@@ -62,12 +58,17 @@ export default function Card() {
             <p className={bem('weather__time')}>{time}</p>
 
             <div className={bem('button-wrapper')}>
-              <button className={bem('button')}>Hourly forecast</button>
               <button
                 className={bem('button')}
                 onClick={() => {
-                  console.log('click');
-                  console.log(weeklyForecast);
+                  handleHourlyForecast(item.name);
+                }}
+              >
+                Hourly forecast
+              </button>
+              <button
+                className={bem('button')}
+                onClick={() => {
                   toggleWeeklyForecast();
                   handleWeeklyForecast(item.coord);
                 }}

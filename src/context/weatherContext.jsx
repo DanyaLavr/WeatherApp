@@ -1,5 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
-import fetchWeather from '@/api/openWeather';
+import { fetchWeather } from '@/api/openWeather';
+import { fetchStatistic } from '@/api/fetchStatistic';
+
 import { useMaxCards } from '@/hooks/useMaxCards';
 
 export const WeatherContext = createContext();
@@ -8,6 +10,7 @@ export const WeatherProvider = ({ children }) => {
   const [cardsArr, setCardsArray] = useState(null);
   const [inputValue, setInputValue] = useState('');
   const [dailyForecast, setDailyForecast] = useState(false);
+  const [hourlyForecast, setHourlyForecast] = useState(null);
   const [weeklyForecast, setWeeklyForecast] = useState(false);
   const [weeklyForecastCordinates, setWeeklyForecastCordinates] = useState({});
   const [choosenCard, setChoosenCard] = useState(null);
@@ -47,7 +50,25 @@ export const WeatherProvider = ({ children }) => {
       return trimPreservingFavorites(newArr, maxCards);
     });
   };
-
+  const handleHourlyForecast = async (city) => {
+    try {
+      const renderArr = await fetchStatistic(city);
+      console.log(renderArr);
+      if (window.innerWidth <= 1439 && window.innerWidth >= 834) {
+        setHourlyForecast(renderArr.slice(0, 8));
+      } else if (window.innerWidth <= 833) {
+        setHourlyForecast(
+          renderArr.slice(0, 10).filter((elem, idx) => {
+            if (idx % 4 === 0) return elem;
+          })
+        );
+      } else setHourlyForecast(renderArr);
+    } catch (err) {
+      console.error(err);
+      setError('Не вдалося завантажити погоду.');
+    }
+  };
+  const closeHourlyForecast = () => setHourlyForecast(null);
   const handleWeeklyForecast = (obj) => {
     setWeeklyForecastCordinates(obj);
   };
@@ -152,6 +173,10 @@ export const WeatherProvider = ({ children }) => {
 
         dailyForecast,
         toggleDailyForecast,
+
+        hourlyForecast,
+        handleHourlyForecast,
+        closeHourlyForecast,
 
         weeklyForecast,
         weeklyForecastCordinates,
