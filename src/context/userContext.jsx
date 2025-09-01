@@ -6,10 +6,9 @@ export const UserProvider = ({ children }) => {
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState(null);
 
-
   const handleLogOut = () => {
-    setUser(null)
-  }
+    setUser(null);
+  };
 
   return (
     <UserContext.Provider value={{ isAuth, setIsAuth, user, setUser, handleLogOut }}>

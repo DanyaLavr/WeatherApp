@@ -15,13 +15,13 @@
   &__icon--heart {
     fill: brown;
   }
-    &__icon:hover{
-      fill: red;
-    }
-      &__icon--heart--active {
+  &__icon:hover {
     fill: red;
   }
-    &__icon--heart--active:hover {
+  &__icon--heart--active {
+    fill: red;
+  }
+  &__icon--heart--active:hover {
     fill: brown;
   }
 }

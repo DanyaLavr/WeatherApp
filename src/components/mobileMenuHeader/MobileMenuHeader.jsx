@@ -1,4 +1,5 @@
 import { createBem } from '@/utils/createBem';
+import UserLogo from '../../../public/images/icons/userlogo.svg';
 
 import styles from './MobileMenuHeader.module.scss';
 
@@ -9,31 +10,23 @@ export default function MobileMenu({ onClick, isOpen, user, handleLogOut }) {
     <div className={`${bem()} ${isOpen ? bem('show') : ''}`}>
       <ul className={bem('menuForMobile')}>
         <li className={bem('item')}>
-          <a className={bem('item-link')} href="">
+          <a className={bem('item-link')} href="#hero">
             Who we are
           </a>
         </li>
         <li className={bem('item')}>
-          <a className={bem('item-link')} href="">
+          <a className={bem('item-link')} href="#footer">
             Contacts
           </a>
         </li>
         <li className={bem('item')}>
-          <a className={bem('item-link')} href="">
+          <a className={bem('item-link')} href="#weather-card">
             Menu
           </a>
         </li>
       </ul>
 
       <div className={bem('userBlockMobile')}>
-        {/* <div className={bem('avatar')}>
-          <img src="../../../public/images/icons/userlogo.svg" alt="userlogo" />
-        </div>
-
-        <button onClick={onClick} className={bem('buttonMenu')}>
-          Sign Up
-        </button> */}
-
         {user ? (
           <>
             <p>{user}</p>
@@ -45,12 +38,13 @@ export default function MobileMenu({ onClick, isOpen, user, handleLogOut }) {
         ) : (
           <>
             <div className={bem('avatar')}>
-              <img src="../../../public/images/icons/userlogo.svg" alt="userlogo" />
+              <svg width={50} height={50}>
+                <use href="../../../public/images/icons/userlogo.svg" />
+              </svg>
             </div>
             <button onClick={onClick} className={bem('buttonMenu')}>
               Sign Up
             </button>
-
           </>
         )}
       </div>

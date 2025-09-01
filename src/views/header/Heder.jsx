@@ -16,8 +16,7 @@ import ModalForm from '@/components/modalForm/ModalForm';
 const bem = createBem('header', styles);
 
 export default function Header() {
-  const { user, isAuth, handleLogOut } = useContext(UserContext);
-  
+  const { user, handleLogOut } = useContext(UserContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -44,10 +43,6 @@ export default function Header() {
       setTimeout(() => setIsMenuOpen(true), 10);
     }
   };
-
-  // const handleLogOut = () => {
-  //   isAuth(null)
-  // }
 
   return (
     <header className={bem()}>
@@ -81,25 +76,22 @@ export default function Header() {
           <div>
             <div className={bem('userBlockWrapper')}>
               <div className={bem('userBlock')}>
-
                 {user ? (
                   <>
                     <button onClick={handleLogOut} className={bem('btnHeader')}>
                       Log Out
                     </button>
-                  <p>{user}</p>
-
+                    <p>{user}</p>
                   </>
                 ) : (
-                    <>
+                  <>
                     <button onClick={handleModal} className={bem('btnHeader')}>
                       Sign Up
                     </button>
                     <div className={bem('avatar')}>
                       <UserLogo />
                     </div>
-                    </>            
-
+                  </>
                 )}
               </div>
             </div>
@@ -122,8 +114,14 @@ export default function Header() {
         <ModalForm onClick={handleModal} isOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       )}
 
-      {showMenu && <MobileMenu isOpen={isMenuOpen} user={user} handleLogOut={handleLogOut} onClick={handleModal} />}
+      {showMenu && (
+        <MobileMenu
+          isOpen={isMenuOpen}
+          user={user}
+          handleLogOut={handleLogOut}
+          onClick={handleModal}
+        />
+      )}
     </header>
   );
 }
-

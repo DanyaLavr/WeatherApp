@@ -19,7 +19,12 @@
   @include media('M') {
     display: none;
   }
-
+  &__avatar {
+    display: block !important;
+    @include media('M') {
+      display: none;
+    }
+  }
   &__show {
     opacity: 1;
     visibility: visible;
