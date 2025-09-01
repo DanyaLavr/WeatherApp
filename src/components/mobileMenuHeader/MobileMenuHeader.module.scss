@@ -1,8 +1,6 @@
 @use '@/style/variables' as *;
 @use '@/style/mixins/components' as *;
-body:has(.mobileMenu) {
-  overflow: hidden;
-}
+
 .mobileMenu {
   position: fixed;
   top: -100%;

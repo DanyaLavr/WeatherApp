@@ -3,7 +3,10 @@
 
 .header {
   padding: 12px 0;
-
+  position: sticky;
+  z-index: 9;
+  top: 0;
+  background-color: $color-secondary;
   &__menu {
     display: flex;
     flex-direction: row;
