@@ -6,11 +6,12 @@ import NewsItem from '@/components/NewsItem';
 import Loader from '@/components/loader/Loader';
 
 import { fetchNews } from '@/api/fetchNews';
+import { useLoading } from '@/hooks/useLoading';
 
 const News = () => {
   const [pageCards, setPageCards] = useState(1);
   const [news, setNews] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, handleLoading, error, handleError, resetError] = useLoading();
 
   const handleIncrement = () => {
     setPageCards((prev) => prev + 1);
@@ -18,14 +19,16 @@ const News = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
+      resetError();
+      handleLoading(true);
       try {
         const data = await fetchNews(pageCards);
         setNews([...news, ...data] || []);
       } catch (error) {
         console.error('Error fetching news:', error);
+        handleError();
       } finally {
-        setLoading(false);
+        handleLoading(false);
       }
     };
 
@@ -43,7 +46,8 @@ const News = () => {
             ))}
           </ul>
         )}
-        {loading && <Loader />}
+        {isLoading && <Loader />}
+        {error && error}
 
         <button type="button" className={bem('button')} onClick={handleIncrement}>
           See more
