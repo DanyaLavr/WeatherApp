@@ -27,7 +27,7 @@ const HeroInput = () => {
         onClick={() => searchWeather(refInput.current.value)}
       >
         <span className={bem('search')} role="img" aria-label="search">
-          <i className="fa-solid fa-magnifying-glass"></i>
+          <i className="fa-solid fa-magnifying-glass" style={{ color: 'black' }}></i>
         </span>
       </button>
     </div>
