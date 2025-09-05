@@ -40,6 +40,7 @@
 
   &__userBlockWrapper {
     display: none;
+    color: $color-main;
     @include media('M') {
       display: block;
     }
