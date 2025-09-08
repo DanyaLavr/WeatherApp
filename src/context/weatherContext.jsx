@@ -124,7 +124,7 @@ export const WeatherProvider = ({ children }) => {
         return trimPreservingFavorites(newArr, maxCards);
       });
     } catch (err) {
-      setError(`City "${newCity}" not found!`);
+      setError(`City "${newCity[0].toUpperCase()}${newCity.slice(1)}" not found!`);
     }
   };
   const deleteCardByName = (name) => {
