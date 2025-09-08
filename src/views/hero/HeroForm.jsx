@@ -6,8 +6,8 @@ import { WeatherContext } from '@/context/weatherContext';
 
 const bem = createBem('hero', styles);
 
-const HeroInput = () => {
-  const { handleAddingNewCard, handleSearch } = useContext(WeatherContext);
+const HeroForm = () => {
+  const { handleSearch } = useContext(WeatherContext);
   const refInput = useRef();
   const resetForm = () => {
     refInput.current.value = '';
@@ -35,4 +35,4 @@ const HeroInput = () => {
   );
 };
 
-export default HeroInput;
+export default HeroForm;
