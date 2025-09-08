@@ -2,9 +2,8 @@
 @use '@/style/mixins/components' as *;
 
 .mobileMenu {
-  position: fixed;
+  position: absolute;
   top: -100%;
-  left: 0;
   z-index: 1000;
   width: 100%;
   background: #e6e6e6;
