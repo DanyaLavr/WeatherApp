@@ -7,18 +7,14 @@ import { WeatherContext } from '@/context/weatherContext';
 const bem = createBem('hero', styles);
 
 const HeroInput = () => {
-  const { handleAddingNewCard } = useContext(WeatherContext);
+  const { handleAddingNewCard, handleSearch } = useContext(WeatherContext);
   const refInput = useRef();
-  const searchWeather = async (city) => {
-    const res = await fetchWeather(city);
-    handleAddingNewCard(res);
-  };
   const resetForm = () => {
     refInput.current.value = '';
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    searchWeather(refInput.current.value);
+    handleSearch(refInput.current.value);
     resetForm();
   };
   return (

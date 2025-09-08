@@ -8,7 +8,6 @@ export const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
   const [cardsArr, setCardsArray] = useState(null);
-  const [inputValue, setInputValue] = useState('');
   const [dailyForecast, setDailyForecast] = useState(false);
   const [hourlyForecast, setHourlyForecast] = useState(null);
   const [weeklyForecast, setWeeklyForecast] = useState(false);
@@ -108,16 +107,14 @@ export const WeatherProvider = ({ children }) => {
     loadCities();
   }, [maxCards]);
 
-  const handleSearch = async () => {
-    const newCity = inputValue.trim();
+  const handleSearch = async (city) => {
+    const newCity = city.trim().toLowerCase();
     if (!newCity) return;
 
-    setInputValue('');
     setError('');
     try {
       const newWeather = await fetchWeather(newCity);
       const cardWithFav = { ...newWeather, isFavorite: false };
-
       setCardsArray((prev) => {
         const base = Array.isArray(prev) ? prev : [];
         if (base.some((card) => card.name.toLowerCase() === cardWithFav.name.toLowerCase())) {
@@ -162,8 +159,6 @@ export const WeatherProvider = ({ children }) => {
       value={{
         cardsArr,
         setCardsArray,
-        inputValue,
-        setInputValue,
         handleSearch,
         handleAddingNewCard,
         deleteCardByName,
