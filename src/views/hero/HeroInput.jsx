@@ -13,24 +13,29 @@ const HeroInput = () => {
     const res = await fetchWeather(city);
     handleAddingNewCard(res);
   };
+  const resetForm = () => {
+    refInput.current.value = '';
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    searchWeather(refInput.current.value);
+    resetForm();
+  };
   return (
-    <div className={bem('search_box')}>
+    <form className={bem('search_box')} onSubmit={onSubmit}>
       <input
         ref={refInput}
         className={bem('search_input')}
         type="text"
         placeholder="Search location..."
+        enterKeyHint="search"
       />
-      <button
-        className={bem('search_button')}
-        type="submit"
-        onClick={() => searchWeather(refInput.current.value)}
-      >
+      <button className={bem('search_button')} type="submit">
         <span className={bem('search')} role="img" aria-label="search">
           <i className="fa-solid fa-magnifying-glass" style={{ color: 'black' }}></i>
         </span>
       </button>
-    </div>
+    </form>
   );
 };
 
