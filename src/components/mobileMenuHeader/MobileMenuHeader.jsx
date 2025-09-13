@@ -39,7 +39,7 @@ export default function MobileMenu({ onClick, isOpen, user, handleLogOut }) {
           <>
             <div className={bem('avatar')}>
               <svg width={50} height={50}>
-                <use href="/images/icons/userlogo.svg#user-logo" />
+                <use xlinkHref="/images/icons/userlogo.svg#user-logo" />
               </svg>
             </div>
             <button onClick={onClick} className={bem('buttonMenu')}>
