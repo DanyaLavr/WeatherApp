@@ -1,4 +1,4 @@
-import HeroInput from './HeroInput';
+import HeroForm from './HeroForm';
 import styles from './hero.module.scss';
 import { createBem } from '@/utils/createBem';
 
@@ -22,7 +22,7 @@ const Hero = () => {
             </p>
           </div>
         </div>
-        <HeroInput />
+        <HeroForm />
       </div>
     </section>
   );

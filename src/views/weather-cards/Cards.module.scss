@@ -1,23 +1,36 @@
 @use '@/style/variables' as *;
 @use '@/style/mixins/components' as *;
 .weather-cards {
-  @include flex-center(space-between);
-  margin: 0 auto;
-  width: 100%;
-  max-width: 293px;
-  @include media('M') {
-    max-width: 634px;
+  @include section-padding-top;
+
+  &__container {
+    padding: 0;
+    position: relative;
   }
-  @include media('L') {
-    max-width: 1140px;
-  }
-  &-section {
-    @include section-padding-top;
+  &__list {
+    @include flex-center;
+    @include media('M') {
+      gap: 110px;
+    }
+    @include media('L') {
+      gap: 90px;
+    }
   }
   &-error-message {
+    font-size: 12px;
     color: red;
-    margin: 20px 0;
     text-align: center;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    @include media('M') {
+      font-size: 16px;
+      top: -35px;
+    }
+    @include media('L') {
+      top: -50px;
+    }
   }
   &__item {
     @include flex-center;
@@ -108,6 +121,7 @@
     max-width: 130px;
     margin-bottom: 13px;
     width: 100%;
+    transform: translateX(-10px);
     @include media('M') {
       margin-top: 12px;
       margin-bottom: 27px;

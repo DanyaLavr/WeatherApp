@@ -14,8 +14,8 @@ const CustomTooltip = ({ active, payload, label }) => {
           alt={description}
           width="50"
         />
-        <p>Температура: {temp}°C</p>
-        <p>Відчувається як: {feels_like}°C</p>
+        <p>Temperature: {temp}°C</p>
+        <p>Feels like: {feels_like}°C</p>
         <p style={{ textTransform: 'capitalize' }}>{description}</p>
       </div>
     );
