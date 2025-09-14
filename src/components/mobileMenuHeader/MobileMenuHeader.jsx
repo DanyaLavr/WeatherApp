@@ -1,6 +1,6 @@
 import { createBem } from '@/utils/createBem';
 
-import UserLogo from '../../../p`/images/icons/userlogo-mobile.svg';
+import UserLogo from '../../../public/images/icons/userlogo-mobile.svg';
 import styles from './MobileMenuHeader.module.scss';
 
 const bem = createBem('mobileMenu', styles);
